@@ -8,9 +8,11 @@ namespace BlackFormBackend.Models.Categorias;
 public class SeleccionMultiple : Categoria
 {
     public List<Opcion> Opciones { get; set; }
-
-    public SeleccionMultiple()
+    
+    [JsonConstructor]
+    public SeleccionMultiple() : base()
     {
+        Id = Guid.NewGuid();
         TipoCategoria = TipoCategoriaEnum.SeleccionMultiple;
         Opciones = [];
     }

@@ -1,5 +1,6 @@
 using AutoMapper;
 using BlackFormBackend.Models;
+using BlackFormBackend.Models.Categorias;
 using BlackFormBackend.Models.DTOs.Request;
 using BlackFormBackend.Models.DTOs.Response;
 
@@ -26,5 +27,8 @@ public class AutoMapping : Profile
         
         //Model -> Response
         CreateMap<Formulario, FormularioResponseDTO>();
+        
+        /* Categoria */
+        CreateMap<CategoriaRequestDTO, Categoria>();
     }
 }

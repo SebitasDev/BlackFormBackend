@@ -24,8 +24,8 @@ builder.Services.AddSingleton<Utilidades>();
 
 builder.Services.AddScoped<IAccesoRepository, AccesoRepository>();
 builder.Services.AddScoped<IFormularioRepository, FormularioRepository>();
-builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
 
 //JWT

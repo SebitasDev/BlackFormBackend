@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using BlackFormBackend.Custom;
 using BlackFormBackend.Models.Categorias;
 using BlackFormBackend.Models.ENUMs;
 using MongoDB.Bson;

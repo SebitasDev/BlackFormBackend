@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using BlackFormBackend.Custom;
 using BlackFormBackend.Models.Categorias;
 using BlackFormBackend.Models.ENUMs;
 using MongoDB.Bson;
@@ -21,7 +22,7 @@ public class Formulario
     public required bool esPublico { get; set; }
     public required bool esActivo { get; set; }
     public required string UsuarioId { get; set; }
-    public List<ICategoria> Categoria { get; set; }
+    public List<Categoria> Categoria { get; set; }
 
     public Formulario()
     {

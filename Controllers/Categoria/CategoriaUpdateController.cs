@@ -6,23 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlackFormBackend.Controllers.Categoria;
 
-[Route("api/categoria-create")]
+[Route("api/[controller]")]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [ApiController]
-public class CategoriaCreateController : ControllerBase
+public class CategoriaUpdateController : ControllerBase
 {
     private readonly ICategoriaRepository _categoriaRepository;
 
-    public CategoriaCreateController(ICategoriaRepository categoriaRepository)
+    public CategoriaUpdateController(ICategoriaRepository categoriaRepository)
     {
         _categoriaRepository = categoriaRepository;
     }
 
-    [HttpPost("{idUsuario}/{idFormulario}")]
-    public async Task<ActionResult> CrearFormulario([FromBody] CategoriaRequestDTO categoriaRequestDto,
-        string idUsuario, string idFormulario)
+    [HttpPut("{idUsuario}/{idFormulario}/{idCategoria}")]
+    public async Task<ActionResult> ActualizarCategoria([FromBody] CategoriaUpdateRequestDTO categoriaUpdateRequestDto,
+        string idUsuario, string idFormulario, Guid idCategoria)
     {
-        var respuesta = await _categoriaRepository.CreateCategoria(idUsuario, idFormulario, categoriaRequestDto);
+        var respuesta =
+            await _categoriaRepository.UpdateCategoria(idUsuario, idFormulario, idCategoria, categoriaUpdateRequestDto);
 
         if (respuesta.Estado)
         {

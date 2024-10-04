@@ -7,8 +7,10 @@ namespace BlackFormBackend.Models.Categorias;
 
 public class RespuestaLarga : Categoria
 {
-    public RespuestaLarga()
+    [JsonConstructor]
+    public RespuestaLarga() : base()
     {
+        Id = Guid.NewGuid();
         TipoCategoria = TipoCategoriaEnum.RespuestaLarga;
     }
 }

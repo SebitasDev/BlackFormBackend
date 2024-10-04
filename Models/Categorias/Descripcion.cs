@@ -14,6 +14,5 @@ public class Descripcion : Categoria
     {
         TipoCategoria = TipoCategoriaEnum.Descripcion;
         esObligatoria = false;
-        Pregunta = null;
     }
 }

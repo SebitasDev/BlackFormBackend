@@ -5,10 +5,12 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace BlackFormBackend.Models.Categorias;
 
+[BsonDiscriminator("respuestaCorta")]
 public class RespuestaCorta : Categoria
 {
     public RespuestaCorta()
     {
+        Id = Guid.NewGuid();
         TipoCategoria = TipoCategoriaEnum.RespuestaCorta;
     }
 }
