@@ -27,6 +27,13 @@ builder.Services.AddScoped<IFormularioRepository, FormularioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("NewPolicy", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 
 //JWT
 builder.Services.AddAuthentication(config =>
@@ -69,6 +76,8 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseCors("NewPolicy");
 
 app.UseAuthorization();
 
